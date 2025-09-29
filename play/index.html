@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en-CA">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=500, initial-scale=1" />
+
+    <meta name="Sync Playground" content="Sync Playground" />
+
+    <title>Sync Playground</title>
+  </head>
+  <body>
+    <script>
+        var compile = null;
+        const play = require("./play.js");
+        play().then((instance) => {
+            instance.ccall("testExportedFunction");
+            compile = () => {
+                instance.ccall("testExportedFunction");
+            }
+        });
+
+        function runCompile() {
+            if(compile != null) {
+                compile();
+            }
+        }
+    </script>
+
+    <div class="header">
+      <h1>Try Sync!</h1>
+      <button onclick="runCompile()">Click Me</button>
+    </div>
+    
+  </body>
+</html>
