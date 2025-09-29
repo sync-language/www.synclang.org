@@ -11,13 +11,11 @@
   <body>
     <script>
         var compile = null;
-        const play = require("./play.js");
-        play().then((instance) => {
-            instance.ccall("testExportedFunction");
-            compile = () => {
-                instance.ccall("testExportedFunction");
-            }
-        });
+        import Module from "./play.js"
+        const mymod = await Module();
+        compile = () => {
+            mymod.ccall("testExportedFunction");
+        }
 
         function runCompile() {
             if(compile != null) {
