@@ -1,34 +1,62 @@
 <!doctype html>
 <html lang="en-CA">
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=500, initial-scale=1" />
 
     <meta name="Sync Playground" content="Sync Playground" />
 
     <title>Sync Playground</title>
-  </head>
-  <body>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/theme/ayu-dark.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js"></script>
+</head>
+
+<body>
     <script type="module">
         var compile = null;
-        import Module from "./play.js"
+        import Module from "../wasm/play.js"
         const mymod = await Module();
-        compile = () => {
+        compile = (source) => {
             mymod.ccall("testExportedFunction");
         }
+        window.syncModule = mymod;
+    </script>
+
+    <div id="container">
+        <button onclick="syncCompile()">Click Me (Doesn't Compile Yet)</button>
+        <div id="editordiv">
+            <div class="textthing"><textarea id="editor"></textarea></div>
+            
+            <div id="execution" contenteditable readonly></div>
+        </div>
+        <div id="footer"></div>
+    </div>
+
+    <script>
+        let editor = CodeMirror.fromTextArea(document.getElementById('editor'), {
+            lineNumbers: true,
+            theme: "ayu-dark"
+        });
+        editor.setSize("100%", "100%");
+
+        editor.setValue("fn main() {\n\tprint(\"Hello World!\");\n}");
 
         function runCompile() {
-            if(compile != null) {
-                compile();
-            }
+            console.log(editor);
+            const currentText = editor.getValue();
+            console.log(currentText);
+            let syncCompileFunction = window.syncModule.cwrap("syncCompile", null, ["number"]); // the argument is 'number' because we will pass a pointer 
+            let ptr = window.syncModule.stringToNewUTF8(currentText);
+            syncCompileFunction(ptr);
+            document.getElementById('execution').textContent = currentText;
         }
         window.syncCompile = runCompile;
     </script>
 
-    <div class="header">
-      <h1>Try Sync!</h1>
-      <button onclick="syncCompile()">Click Me</button>
-    </div>
-    
-  </body>
+</body>
+
 </html>

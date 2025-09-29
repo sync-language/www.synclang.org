@@ -1,0 +1,44 @@
+#container {
+    display: flex;
+    flex-direction: column;
+    height: 98vh;
+    /* this works idk */
+}
+
+#editordiv {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+
+}
+
+#editor {
+    flex: 1;
+}
+
+#execution {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    resize: none;
+    overflow: auto;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    /* Allows breaking within words */
+    white-space: normal;
+    /* Ensures normal wrapping behavior */
+    margin: 15px;
+    border: 2px solid #333;
+}
+
+#footer {
+    /* padding: 10px */
+}
+
+.textthing {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 15px;
+}
