@@ -1,0 +1,36 @@
+name: Deploy
+
+on:
+  workflow_dispatch:
+#   push:
+#     branches:
+#       - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install CMake
+        uses: lukka/get-cmake@latest 
+      - name: Install Emscripten
+        run: ./emscripten/emsdk install latest
+      - name: Activate Emscripten
+        run: ./emscripten/emsdk activate latest
+      - name: Add to Path
+        run: source ./emscripten/emsdk_env.sh
+      - name: Configure CMake
+        run: emcmake cmake -S . -B build
+      - name: Build
+        run: cmake --build build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: WASM
+          path: |
+            build.play.js
+            build.play.wasm
+    #   - name: Deploy
+    #     uses: cloudflare/wrangler-action@v3
+    #     with:
+    #       apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
