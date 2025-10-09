@@ -23,7 +23,7 @@ jobs:
       - name: Add to Path
         run: source ./emscripten/emsdk_env.sh
       - name: Configure CMake
-        run: emcmake cmake -S . -B build
+        run: ./emscripten/upstream/emscripten/emcmake cmake -S . -B build
       - name: Build
         run: cmake --build build
       - uses: actions/upload-artifact@v4
