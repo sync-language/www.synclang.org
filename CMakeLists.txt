@@ -2,7 +2,11 @@ cmake_minimum_required (VERSION 3.28)
 
 project("www.synclang.org")
 
-add_executable(play test.cpp)
+add_executable(
+    play 
+    test.cpp
+    # build/play.js
+)
 
 set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} \
   -s WASM=1 \
@@ -13,3 +17,24 @@ set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} \
   -s MODULARIZE \
   -s EXPORT_ES6=1 \
   -Os")
+
+# file(COPY "build/play.js" DESTINATION "syncWeb/")
+# file(COPY "build/play.wasm" DESTINATION "syncWeb") #this is copying before the build then copying so it'll create a new subfolder inside the CMake build folder
+
+# configure_file("${CMAKE_SOURCE_DIR}/build/play.js" "${CMAKE_BINARY_DIR}/settings.txt" COPYONLY)
+
+add_custom_command(
+    TARGET play 
+    POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy
+            ${CMAKE_BINARY_DIR}/play.js
+            ${CMAKE_SOURCE_DIR}/syncWeb/play
+)
+
+add_custom_command(
+    TARGET play 
+    POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy
+            ${CMAKE_BINARY_DIR}/play.wasm
+            ${CMAKE_SOURCE_DIR}/syncWeb/play
+)
