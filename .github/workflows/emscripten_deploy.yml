@@ -26,16 +26,6 @@ jobs:
         run: ./emscripten/upstream/emscripten/emcmake cmake -S . -B build
       - name: Build
         run: cmake --build build
-      - name: List Stuff
-        run: |
-          ls syncWeb/
-          ls syncWeb/play
-      # - uses: actions/upload-artifact@v4
-      #   with:
-      #     name: WASM
-      #     path: |
-      #       build/play.js
-      #       build/play.wasm
       - name: Deploy
         uses: cloudflare/wrangler-action@v3
         with:
