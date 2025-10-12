@@ -1,0 +1,9 @@
+@import "variables.css";
+
+h1 {
+    color: var(--text);
+}
+
+p {
+    color: var(--text-muted);
+}

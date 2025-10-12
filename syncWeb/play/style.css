@@ -1,44 +1,143 @@
+@import "../variables.css";
+
+:root {
+    --navbar-height: 60px;
+}
+
+.navbar {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: row;
+    background-color: hsl(0, 0%, 30%);
+    height: var(--navbar-height);
+    width: 100%;
+    justify-content: space-between;
+}
+
+.runButton {
+  background-color: #408f43; /* A shade of green */
+  color: var(--text);
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px; /* Slightly rounded corners */
+  cursor: pointer; /* Indicates it's clickable */
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.runButton:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+.runButton:active {
+  background-color: #3e8e41; /* Even darker green when clicked */
+}
+
+.shareButton {
+  background-color: #595968; /* A shade of green */
+  color: var(--text);
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px; /* Slightly rounded corners */
+  cursor: pointer; /* Indicates it's clickable */
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.shareButton:hover {
+  background-color: #6b6b7e; /* Darker green on hover */
+}
+
+.shareButton:active {
+  background-color: #42424e; /* Even darker green when clicked */
+}
+
+body {
+    padding-top: var(--navbar-height);
+    height: 100%;
+}
+
 #container {
     display: flex;
     flex-direction: column;
-    height: 98vh;
-    /* this works idk */
 }
 
-#editordiv {
+#editor-and-output {
     display: flex;
-    flex-direction: row;
     flex: 1;
-
+    height: 90vh;
+    overflow: hidden;
 }
 
-#editor {
+@media (orientation: portrait) {    
+    :root {
+        --editor-and-output-height: 45vh;
+        --editor-and-output-width: auto;
+    }
+
+    #editor-and-output {
+        flex-direction: column-reverse;
+    }
+}
+
+@media (orientation: landscape) {
+    :root {
+        --editor-and-output-height: 90vh;
+        --editor-and-output-width: 50%
+    }
+
+    #editor-and-output {
+        flex-direction: row;
+    }
+    
+}
+
+.CodeMirror {
+    font-size: 20px;
+    border: 1px solid #ccc; /* Add a border for visibility */
+    height: auto;
+}
+
+#editor-container {
+    display: flex;
+    flex-direction: column;
+    height: var(--editor-and-output-height);
+    width: var(--editor-and-output-width);
+    margin: 15px;
     flex: 1;
+    position: relative;
 }
 
 #execution {
     flex: 1;
-    width: 100%;
-    height: 100%;
-    max-width: 100%;
+    height: var(--editor-and-output-height);
+    width: var(--editor-and-output-width);
+    min-height: 50%;
     resize: none;
-    overflow: auto;
+    overflow: none;
     word-wrap: break-word;
     overflow-wrap: break-word;
     /* Allows breaking within words */
     white-space: normal;
     /* Ensures normal wrapping behavior */
     margin: 15px;
-    border: 2px solid #333;
+    border: 1px solid #333;
 }
 
-#footer {
-    /* padding: 10px */
-}
-
-.textthing {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    margin: 15px;
+#output {
+    color: var(--text);
+    background-color: var(--bg-light);
+    resize: none;
+    height: 100%;
+    width: 100%;
+    min-height: 100px;
 }

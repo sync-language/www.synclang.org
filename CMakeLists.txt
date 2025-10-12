@@ -18,11 +18,6 @@ set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} \
   -s EXPORT_ES6=1 \
   -Os")
 
-# file(COPY "build/play.js" DESTINATION "syncWeb/")
-# file(COPY "build/play.wasm" DESTINATION "syncWeb") #this is copying before the build then copying so it'll create a new subfolder inside the CMake build folder
-
-# configure_file("${CMAKE_SOURCE_DIR}/build/play.js" "${CMAKE_BINARY_DIR}/settings.txt" COPYONLY)
-
 add_custom_command(
     TARGET play 
     POST_BUILD

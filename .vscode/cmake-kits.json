@@ -1,7 +1,6 @@
 [
   {
     "name": "Emscripten",
-    "toolchainFile": "emscripten/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake",
-    "environmentSetupScript": "./scripts/configure_emscripten.sh"
+    "toolchainFile": "emscripten/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake"
   }
 ]
