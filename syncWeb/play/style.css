@@ -17,48 +17,41 @@
     justify-content: space-between;
 }
 
-.runButton {
-  background-color: #408f43; /* A shade of green */
+button {
   color: var(--text);
   padding: 10px 20px;
   margin: 10px;
   border: none;
-  border-radius: 5px; /* Slightly rounded corners */
-  cursor: pointer; /* Indicates it's clickable */
+  border-radius: 5px;
+  cursor: pointer;
   font-size: 16px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
+}
+
+.runButton {
+  background-color: #408f43;
 }
 
 .runButton:hover {
-  background-color: #45a049; /* Darker green on hover */
+  background-color: #45a049;
 }
 
 .runButton:active {
-  background-color: #3e8e41; /* Even darker green when clicked */
+  background-color: #3e8e41;
 }
 
 .shareButton {
-  background-color: #595968; /* A shade of green */
-  color: var(--text);
-  padding: 10px 20px;
-  margin: 10px;
-  border: none;
-  border-radius: 5px; /* Slightly rounded corners */
-  cursor: pointer; /* Indicates it's clickable */
-  font-size: 16px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
+  background-color: #595968;
 }
 
 .shareButton:hover {
-  background-color: #6b6b7e; /* Darker green on hover */
+  background-color: #6b6b7e;
 }
 
 .shareButton:active {
-  background-color: #42424e; /* Even darker green when clicked */
+  background-color: #42424e;
 }
 
 body {
@@ -66,15 +59,10 @@ body {
     height: 100%;
 }
 
-#container {
-    display: flex;
-    flex-direction: column;
-}
-
 #editor-and-output {
     display: flex;
     flex: 1;
-    height: 90vh;
+    height: 93vh;
     overflow: hidden;
 }
 
@@ -91,7 +79,7 @@ body {
 
 @media (orientation: landscape) {
     :root {
-        --editor-and-output-height: 90vh;
+        --editor-and-output-height: 100%;
         --editor-and-output-width: 50%
     }
 
@@ -99,12 +87,6 @@ body {
         flex-direction: row;
     }
     
-}
-
-.CodeMirror {
-    font-size: 20px;
-    border: 1px solid #ccc; /* Add a border for visibility */
-    height: auto;
 }
 
 #editor-container {
@@ -117,27 +99,20 @@ body {
     position: relative;
 }
 
-#execution {
+#output {
     flex: 1;
     height: var(--editor-and-output-height);
     width: var(--editor-and-output-width);
-    min-height: 50%;
     resize: none;
-    overflow: none;
     word-wrap: break-word;
     overflow-wrap: break-word;
-    /* Allows breaking within words */
     white-space: normal;
-    /* Ensures normal wrapping behavior */
     margin: 15px;
-    border: 1px solid #333;
-}
-
-#output {
+    padding: 10px;
     color: var(--text);
     background-color: var(--bg-light);
-    resize: none;
-    height: 100%;
-    width: 100%;
-    min-height: 100px;
+}
+
+#output:focus {
+  outline: none;
 }
