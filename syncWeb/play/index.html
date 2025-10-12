@@ -18,7 +18,7 @@
 <body>
     <script type="module">
         var compile = null;
-        import Module from "../build/play.js"
+        import Module from "./play.js"
         const mymod = await Module();
         compile = (source) => {
             mymod.ccall("testExportedFunction");
