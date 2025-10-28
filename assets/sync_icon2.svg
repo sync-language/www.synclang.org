@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="256mm"
+   height="256mm"
+   viewBox="0 0 256 256"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   sodipodi:docname="sync_icon2.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.0467522"
+     inkscape:cx="397.8974"
+     inkscape:cy="459.99424"
+     inkscape:window-width="2560"
+     inkscape:window-height="1377"
+     inkscape:window-x="2552"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <path
+     id="path1"
+     style="display:inline;fill:#b3b3b3;stroke-width:0.264583"
+     inkscape:transform-center-x="5.6679007"
+     inkscape:transform-center-y="-5.6679007"
+     transform="translate(65.971915,83.665531)"
+     d="M 190.02808,172.33447 H -65.971915 V -83.665532 l 128,128 127.999995,-128 z"
+     sodipodi:nodetypes="cccccc"
+     inkscape:label="path1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     style="display:inline">
+    <path
+       id="path3"
+       style="stroke-width:0.121949"
+       d="M 127.99994,16.000057 32,96 64,95.999825 127.99994,48.000171 192,96 l 32,-1.75e-4 z"
+       sodipodi:nodetypes="ccccccc" />
+    <path
+       id="path6"
+       style="stroke-width:0.121949"
+       d="M 127.99994,239.99994 32,160 l 32,1.8e-4 63.99994,47.99965 L 192,160 l 32,1.8e-4 z"
+       sodipodi:nodetypes="ccccccc" />
+    <path
+       id="path1-8"
+       style="fill:#1a1a1a;stroke-width:0.335316"
+       d="m 32,16 192,192 v 32 L 32,48 Z"
+       sodipodi:nodetypes="ccccc" />
+  </g>
+</svg>
