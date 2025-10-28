@@ -1,9 +1,5 @@
 @import "../variables.css";
 
-:root {
-    --navbar-height: 60px;
-}
-
 .navbar {
     position: fixed;
     top: 0px;
