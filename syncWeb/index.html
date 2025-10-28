@@ -12,18 +12,25 @@
 </head>
 <body>
     <div class="navbar">
-        <div  class="sync-logo" onclick="location.href='#';" style="cursor: pointer; display: flex; flex-direction: row;">
-            <img src="synclogo-white.png" alt="Sync Logo" class="sync-logo">
-            <h1>Sync</h1>
+        <div class="sync-logo-nav">
+            <div onclick="location.href='#';" style="cursor: pointer; display: flex; flex-direction: row;">
+                <img src="synclogo-white.png" alt="Sync Logo" class="sync-logo-within-nav">
+                <h1>Sync</h1>
+            </div> 
         </div>
         <div class="non-logo-nav">
-            <a href="play/" class="navbar-item">Try</a>
+            <a href="play/" class="navbar-item">Try</a>&nbsp;
             <a href="https://github.com/sync-language/sync" class="navbar-item">GitHub</a>
+        </div>
+        <div class="empty-right-nav">
         </div>
         
     </div>
-    <div>   
-        <p>In Progress 😎!</p>
+    <div style="display:flex; justify-content: center; align-items: center;">
+        <div class="hero">
+            <img src="synclogo-white.png" alt="Sync Logo" class="sync-logo-big">
+            <h2 class="color: var(--text);">Sync is an easily embeddable programming language for building robust, scalable software with parallel performance and memory safety.</h2>
+        </div> 
     </div>
 </body>
 </html>
