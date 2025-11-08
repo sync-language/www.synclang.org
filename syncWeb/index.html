@@ -26,10 +26,32 @@
         </div>
         
     </div>
-    <div style="display:flex; justify-content: center; align-items: center;">
-        <div class="hero">
-            <h2 class="color: var(--text);">Sync is an easily embeddable programming language for building robust, scalable software with parallel performance and memory safety.</h2>
-        </div> 
-    </div>
+    <section class="hero">
+        <div class="hero-inner">
+            <p class="sync-desc">Sync is an easily embeddable programming language for building robust, scalable software with parallel performance and memory safety.</p>
+            <button class="getting-started" onclick="window.location.href='https://github.com/sync-language/sync';">Getting Started</button>
+        </div>
+    </section>
+    <section class="look-at">
+        <div class="look-at-container">
+            <div class="why">
+                <h1 class="look-at-header">Embeddable</h1>
+                <p class="look-at-text">Sync is lightweight, being embeddable easily into applications using any build system. A simple API is provided, with native support for C, C++, Rust, and Zig. All Sync structs use the C memory layout, and no garbage collector is used, allowing you to pass data to and from Sync without any translation layers. Sync can also be built on all platforms that have a standard C++17 or higher compiler.</p>
+                <h1 class="look-at-header">Multithreading</h1>
+                <p class="look-at-text">Sync supports running all built code in parallel, without data races and deadlocks. It is well-suited to use all of the processing power available in a system.</p>
+                <h1 class="look-at-header">Safety</h1>
+                <p class="look-at-text"><strong>Thread safety is memory safety. </strong>Sync's ownership model guarantees modern safety at compile-time while also being able to communicate safely with the program it is embedded in.</p>
+                <h1 class="look-at-header">Flexibility</h1>
+                <p class="look-at-text">Sync code is compiled when you want while your host program is running. This allows maximum flexibility in what your program can do.</p>
+            </div>
+            <div class="code-examples">
+
+            </div>
+        </div>
+    </section>
+    <section class="get-involved">
+        <div class="get-involved-container">
+        </div>
+    </section>
 </body>
 </html>

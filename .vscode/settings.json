@@ -1,4 +1,14 @@
 {
+    "workbench.editor.customLabels.enabled": true,
+    "workbench.editor.customLabels.patterns": {
+        "**/index.html": "${dirname} (index.html)",
+        "**/style.css": "${dirname} (style.css)"
+    },
+    "editor.wordWrap": "bounded",
+    "editor.wordWrapColumn": 120,
+    "editor.detectIndentation": false,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4,
     "files.associations": {
         "iostream": "cpp"
     }

@@ -2,6 +2,23 @@
 
 :root {
     font-family: Arial, sans-serif;
+    /* --purple-bg: #742f8f; */
+    /* --purple-bg: #48125e; */
+    --purple-bg: #580479;
+    --da-yellow: #dbaf34;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
 }
 
 h1 {
@@ -13,11 +30,16 @@ p {
 }
 
 .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ensures the navbar stays on top of other elements */
     display: flex;
     flex-direction: row;
     height: var(--navbar-height);
     text-align: center;
     align-items: center;
+    background-color: var(--purple-bg);
 }
 
 .non-logo-nav {
@@ -25,16 +47,19 @@ p {
     flex-direction: row;
     justify-content: right;
     display: block;
-    flex-grow:1;
+    flex-grow: 1;
 }
 
-.navbar-item, .navbar-item:link, .navbar-item:visited {
+.navbar-item,
+.navbar-item:link,
+.navbar-item:visited {
     color: var(--text-muted);
     text-decoration: none;
     font-size: large;
 }
 
-.navbar-item:hover, .navbar-item:active {
+.navbar-item:hover,
+.navbar-item:active {
     color: #45a049;
     text-decoration: none;
     font-size: large;
@@ -45,26 +70,13 @@ p {
     height: 60px;
 }
 
-.hero {
-    width: 66%;
-    text-align: left;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-h2 {
-    color: white
-}
-
 .sync-logo-nav {
     width: 175px;
     max-height: 60px;
     height: 60px;
 }
 
-@media (orientation: portrait) {  
+@media (orientation: portrait) {
     .empty-right-nav {
         width: 175px;
     }
@@ -73,5 +85,152 @@ h2 {
 @media (orientation: landscape) {
     .empty-right-nav {
         display: none;
+    }
+}
+
+.hero {
+    flex: 0 1 auto;
+    width: 100%;
+    min-height: 300px;
+    background-color: var(--purple-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.hero-inner {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: center;
+}
+
+@media (orientation: portrait) {
+    .hero-inner {
+        width: 90%;
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        align-items: center;
+    }
+}
+
+@media (orientation: landscape) {
+    .hero-inner {
+        width: 50%;
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        align-items: center;
+    }
+}
+
+.sync-desc {
+    flex: 1;
+    margin: 0;
+    font-size: 2.0rem;
+    max-width: 60%;
+    color: var(--text);
+}
+
+.getting-started {
+    padding: 1rem 2rem;
+    margin-left: auto;
+    font-size: 1.2rem;
+    font-weight: 200;
+    /* background: #9b59b6; */
+    background: #dbaf34;
+    color: hsl(0, 0%, 10%);
+    border: 2px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.1s ease;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.getting-started:hover {
+    background:  #f0bc2c 100%;
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.getting-started:active {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+section {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.look-at {
+    flex: 0 1 auto;
+    margin: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    min-height: 200px;
+    background: #270136;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+
+@media (orientation: portrait) {
+    .look-at-container {
+        width: 90%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+@media (orientation: landscape) {
+    .look-at-container {
+        width: 50%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+.look-at-header {
+    padding-top: 16px;
+    color: #f0bc2c;
+}
+
+.look-at-text {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    color: var(--text);
+    font-size: 1.35rem;
+}
+
+.get-involved {
+    background-color: #17021f;
+    flex: 1 1 auto;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+@media (orientation: portrait) {
+    .get-involved-container {
+        width: 90%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+@media (orientation: landscape) {
+    .get-involved-container {
+        width: 50%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
     }
 }
