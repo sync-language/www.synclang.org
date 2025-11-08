@@ -13,12 +13,17 @@
     padding: 0;
 }
 
+html {
+    overscroll-behavior-y: none;
+}
+
 body {
     margin: 0;
     padding: 0;
     padding-top: 60px;
     display: flex;
     flex-direction: column;
+    overscroll-behavior-y: none;
 }
 
 h1 {
