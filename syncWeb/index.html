@@ -27,7 +27,8 @@
     </div>
     <section class="hero">
         <div class="hero-inner">
-            <p class="sync-desc">Sync is an easily embeddable programming language for building robust, scalable software with parallel performance and memory safety.</p>
+            <h2>Sync</h2>
+            <p class="sync-desc">Safely embeddable, natively multithreaded</p>
             <button class="getting-started" onclick="window.location.href='https://github.com/sync-language/sync';">Getting Started</button>
         </div>
     </section>
@@ -35,15 +36,15 @@
         <div class="look-at-container">
             <div class="why">
                 <h1 class="look-at-header">Embeddable</h1>
-                <p class="look-at-text">Sync is lightweight, being embeddable easily into applications using any build system. A simple API is provided, with native support for C, C++, Rust, and Zig. Sync can also be built on all platforms that have a standard C++17 or higher compiler.</p>
-                <h1 class="look-at-header">Simple</h1>
-                <p class="look-at-text">All Sync structs use the C struct memory layout, and no garbage collector is used, allowing you to pass data to and from Sync functions without any translation layers. Sync is deterministic, using move semantics and destructors. Sync is statically typed, with all types checked at compile time. No runtime type errors.</p>
+                <p class="look-at-text">Sync is lightweight, being embeddable with a simple API and native support for C, C++, Rust, and Zig. It works on all platforms with a C++17 or higher compiler.</p>
                 <h1 class="look-at-header">Multithreading</h1>
-                <p class="look-at-text">Sync supports running all built code in parallel, without data races and deadlocks. It is well-suited to use all of the processing power available in a CPU.</p>
+                <p class="look-at-text">Sync supports running all built code in parallel, without data races and deadlocks. It can utilize all available CPU process power.</p>
                 <h1 class="look-at-header">Safety</h1>
-                <p class="look-at-text"><strong>Thread safety is memory safety. </strong>Sync's ownership model guarantees modern safety at compile-time while also being able to communicate safely with the program it is embedded in.</p>
+                <p class="look-at-text"><strong class="thread-safety-is-memory-safety">Thread safety is memory safety. </strong>Sync's ownership model, static typing, and robust synchronization logic guarantees modern, compile-time safety and secure communication with its host program.</p>
+                <h1 class="look-at-header">Simple</h1>
+                <p class="look-at-text">Sync uses the C struct memory layout and no garbage collector for seamless data exchange without translation layers. It is deterministic, using move semantics and destructors.</p>
                 <h1 class="look-at-header">Flexibility</h1>
-                <p class="look-at-text">Sync code is compiled when you want while your host program is running. This allows maximum flexibility in what your program can do.</p>
+                <p class="look-at-text">Sync code compiles on demand during runtime, offering maximum program flexibility.</p>
             </div>
             <div class="code-examples">
                 <div class="code-block">
@@ -64,26 +65,26 @@
                         <span class="k">fn</span>
                         <span class="f">addOne</span><span class="s">() {</span>
                         <br>
-                        <span class="k">&nbsp;&nbsp;&nbsp;&nbsp;for</span>
+                        <span class="k">&nbsp;&nbsp;for</span>
                         <span class="i">i</span>
                         <span class="k">in</span>
                         <span class="v">0</span><span class="s">..</span><span class="v">10000</span>
                         <span class="s">{</span>
                         <span class="c">// Iterates 0, 1, 2, .. 9999 </span>
                         <br>
-                        <span class="c">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Acquire a read-write (exclusive) lock</span>
+                        <span class="c">&nbsp;&nbsp;&nbsp;&nbsp;// Acquire a read-write (exclusive) lock</span>
                         <br>
-                        <span class="k">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sync mut</span>
+                        <span class="k">&nbsp;&nbsp;&nbsp;&nbsp;sync mut</span>
                         <span class="i">counter</span>
                         <span class="s">{</span>
                         <br>
-                        <span class="i">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;counter</span>
+                        <span class="i">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;counter</span>
                         <span class="s">+=</span>
                         <span class="v">1</span><span class="s">;</span>
                         <br>
-                        <span class="s">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span>
-                        <br>
                         <span class="s">&nbsp;&nbsp;&nbsp;&nbsp;}</span>
+                        <br>
+                        <span class="s">&nbsp;&nbsp;}</span>
                         <br>
                         <span class="s">}</span>
                         <br>
@@ -93,26 +94,26 @@
                         <span class="f">addTwo</span><span class="s">(</span><span class="i">n</span><span class="s">:</span>
                         <span class="t">usize</span><span class="s">) {</span>
                         <br>
-                        <span class="k">&nbsp;&nbsp;&nbsp;&nbsp;for</span>
+                        <span class="k">&nbsp;&nbsp;for</span>
                         <span class="i">i</span>
                         <span class="k">in</span>
                         <span class="v">0</span><span class="s">..</span><span class="i">n</span>
                         <span class="s">{</span>
                         <span class="c">// Iterates [0, n) </span>
                         <br>
-                        <span class="c">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Acquire a read-write (exclusive) lock</span>
+                        <span class="c">&nbsp;&nbsp;&nbsp;&nbsp;// Acquire a read-write (exclusive) lock</span>
                         <br>
-                        <span class="k">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sync mut</span>
+                        <span class="k">&nbsp;&nbsp;&nbsp;&nbsp;sync mut</span>
                         <span class="i">counter</span>
                         <span class="s">{</span>
                         <br>
-                        <span class="i">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;counter</span>
+                        <span class="i">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;counter</span>
                         <span class="s">+=</span>
                         <span class="v">2</span><span class="s">;</span>
                         <br>
-                        <span class="s">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span>
-                        <br>
                         <span class="s">&nbsp;&nbsp;&nbsp;&nbsp;}</span>
+                        <br>
+                        <span class="s">&nbsp;&nbsp;}</span>
                         <br>
                         <span class="s">}</span>
                         <br>
@@ -121,31 +122,31 @@
                         <span class="k">fn</span>
                         <span class="f">main</span><span class="s">() {</span>
                         <br>
-                        <span class="s">&nbsp;&nbsp;&nbsp;&nbsp;{</span>
+                        <span class="s">&nbsp;&nbsp;{</span>
                         <br>
-                        <span class="k">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const</span>
+                        <span class="k">&nbsp;&nbsp;&nbsp;&nbsp;const</span>
                         <span class="i">t1</span>
                         <span class="s">=</span>
                         <span class="t">Thread</span><span class="s">.</span><span class="f">spawn</span><span class="s">(</span><span class="f">addOne</span><span class="s">);</span>
                         <br>
-                        <span class="k">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const</span>
+                        <span class="k">&nbsp;&nbsp;&nbsp;&nbsp;const</span>
                         <span class="i">t2</span>
                         <span class="s">=</span>
                         <span class="t">Thread</span><span class="s">.</span><span class="f">spawn</span><span class="s">(</span><span class="f">addTwo</span><span class="s">,</span>
                         <span class="v">20000</span><span class="s">);</span>
                         <br>
-                        <span class="s">&nbsp;&nbsp;&nbsp;&nbsp;}</span>
+                        <span class="s">&nbsp;&nbsp;}</span>
                         <br>
                         <br>
-                        <span class="c">&nbsp;&nbsp;&nbsp;&nbsp;// Acquire an read-only (shared) lock</span>
+                        <span class="c">&nbsp;&nbsp;// Acquire an read-only (shared) lock</span>
                         <br>
-                        <span class="k">&nbsp;&nbsp;&nbsp;&nbsp;sync</span>
+                        <span class="k">&nbsp;&nbsp;sync</span>
                         <span class="i">counter</span>
                         <span class="s">{</span>
                         <br>
-                        <span class="f">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print</span><span class="s">(</span><span class="i">counter</span><span class="s">);</span><span class="c">&nbsp;// 50000</span>
+                        <span class="f">&nbsp;&nbsp;&nbsp;&nbsp;print</span><span class="s">(</span><span class="i">counter</span><span class="s">);</span><span class="c">&nbsp;// 50000</span>
                         <br>
-                        <span class="s">&nbsp;&nbsp;&nbsp;&nbsp;}</span>
+                        <span class="s">&nbsp;&nbsp;}</span>
                         <br>
                         <span class="s">}</span>
                         <br>
@@ -157,6 +158,33 @@
     </section>
     <section class="get-involved">
         <div class="get-involved-container">
+        </div>
+    </section>
+    <section class="roadmap">
+        <div class="roadmap-container">
+            <h1 class="roadmap-title">Roadmap</h1>
+            <div class="roadmap-cards">
+                <div class="roadmap-card">
+                    <h2>Version 0.1.0</h2>
+                    <p><strong>COMING SOON! </strong>Necessary primitives, robust error handling, robust synchronization system (including deadlock detection), compiler, and interpreter.</p>
+                </div>
+                <div class="roadmap-card">
+                    <h2>Package Manager</h2>
+                    <p>Build a native package manager for Sync for easy sharing and integration. Minimizing supply chain attacks is a top priority.</p>
+                </div>
+                <div class="roadmap-card">
+                    <h2>LSP</h2>
+                    <p>Both the language server, and clients for popular code editors.</p>
+                </div>
+                <div class="roadmap-card">
+                    <h2>Video Game Console Support</h2>
+                    <p>As an embeddable language, supporting all possible targets is a priority. In theory, it should work, but testing must be done.</p>
+                </div>
+                <div class="roadmap-card">
+                    <h2>JIT Compiler</h2>
+                    <p>For platforms that support it, a JIT compiler will push Sync to be the language of choice for extending applications.</p>
+                </div>
+            </div>
         </div>
     </section>
 </body>

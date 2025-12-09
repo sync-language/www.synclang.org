@@ -4,7 +4,8 @@
     font-family: Arial, sans-serif;
     /* --purple-bg: #742f8f; */
     /* --purple-bg: #48125e; */
-    --purple-bg: #342e36;
+    --hero-bg: #272627;
+    --main-bg: #161616;
     --da-yellow: #dbaf34;
 }
 
@@ -26,8 +27,16 @@ body {
     overscroll-behavior-y: none;
 }
 
-h1 {
+.hero h2 {
     color: var(--text);
+    font-size: 4.5rem;
+    font-weight: normal;
+    font-family: var(--font-mono);
+}
+
+.hero p {
+    color: var(--text);
+    font-family: var(--font-mono);
 }
 
 p {
@@ -44,7 +53,7 @@ p {
     height: var(--navbar-height);
     text-align: center;
     align-items: center;
-    background-color: var(--purple-bg);
+    background-color: var(--hero-bg);
 }
 
 .non-logo-nav {
@@ -100,72 +109,98 @@ p {
     flex: 0 1 auto;
     width: 100%;
     min-height: 300px;
-    background-color: var(--purple-bg);
+    background-color: var(--hero-bg);
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: row;
 }
 
 .hero-inner {
-    width: 50%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 2rem;
     align-items: center;
+    justify-content: center;
 }
 
 @media (orientation: portrait) {
     .hero-inner {
         width: 90%;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         gap: 2rem;
         align-items: center;
+        justify-content: center;
     }
 }
 
 @media (orientation: landscape) {
     .hero-inner {
-        width: 50%;
+        width: 90%;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         gap: 2rem;
         align-items: center;
+        justify-content: center;
     }
 }
 
 .sync-desc {
-    flex: 1;
     margin: 0;
     font-size: 2.0rem;
-    max-width: 60%;
+    max-width: 80%;
     color: var(--text);
+    text-align: center;
 }
 
 .getting-started {
     padding: 1rem 2rem;
-    margin-left: auto;
     font-size: 1.2rem;
     font-weight: 200;
-    /* background: #9b59b6; */
-    background: #dbaf34;
+    background: white;
     color: hsl(0, 0%, 10%);
-    border: 2px;
+    border: none;
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.1s ease;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    position: relative;
+    margin-bottom: 10px;
+    box-shadow:
+        0 4px 0 0 var(--accent-orange),
+        0 8px 0 0 var(--accent-yellow),
+        0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.getting-started::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    border-radius: 8px;
+    z-index: -1;
+}
+
+.getting-started::after {
+    content: none;
 }
 
 .getting-started:hover {
-    background:  #f0bc2c 100%;
-    border-color: rgba(255, 255, 255, 0.4);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    background: #f5f5f5;
+    box-shadow:
+        -4px -4px 0 0 var(--accent-orange),
+        5px 5px 0 0 var(--accent-yellow),
+        0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
 .getting-started:active {
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    background: #f5f5f5;
+    box-shadow:
+        -4px -4px 0 0 var(--accent-orange),
+        4px 4px 0 0 var(--accent-yellow),
+        0 8px 10px rgba(0, 0, 0, 0.3);
 }
 
 section {
@@ -180,7 +215,7 @@ section {
     padding-top: 10px;
     padding-bottom: 10px;
     min-height: 200px;
-    background: #221925;
+    background: var(--main-bg);
     justify-content: center;
     align-items: center;
     display: flex;
@@ -198,7 +233,8 @@ section {
 
 @media (orientation: landscape) {
     .look-at-container {
-        width: 50%;
+        width: 95%;
+        max-width: 1400px;
         display: flex;
         flex-direction: row;
         align-items: stretch;
@@ -207,7 +243,7 @@ section {
 
 .look-at-header {
     padding-top: 16px;
-    color: #f0bc2c;
+    color: var(--accent-yellow);
 }
 
 .look-at-text {
@@ -215,6 +251,10 @@ section {
     padding-bottom: 16px;
     color: var(--text);
     font-size: 1.35rem;
+}
+
+.thread-safety-is-memory-safety {
+    color: var(--accent-orange)
 }
 
 .why {
@@ -229,18 +269,27 @@ section {
 
 .code-block {
     flex: 1;
-    background-color: #484349;
+    background-color: #3b393b;
     color: white;
     padding: 16px;
     font-size: 1rem;
+    font-family: var(--font-mono);
+    border-radius: 8px;
+    position: relative;
+    box-shadow:
+        -4px -4px 0 0 var(--accent-orange),
+        4px 4px 0 0 var(--accent-yellow);
+    overflow-x: auto;
+    min-width: 0;
 }
 
 .get-involved {
     background-color: #17021f;
-    flex: 1 1 auto;
+    flex: 0 1 auto;
+    min-height: 0;
     justify-content: center;
     align-items: center;
-    display: flex;
+    display: none;
 }
 
 @media (orientation: portrait) {
@@ -259,6 +308,73 @@ section {
         flex-direction: row;
         align-items: center;
     }
+}
+
+.roadmap {
+    background-color: #111111;
+    padding: 60px 0;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.roadmap-container {
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+}
+
+.roadmap-title {
+    color: var(--accent-yellow);
+    font-size: 3rem;
+    text-align: center;
+}
+
+.roadmap-cards {
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.roadmap-card {
+    background: white;
+    color: hsl(0, 0%, 10%);
+    padding: 2rem;
+    border-radius: 8px;
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    position: relative;
+    transition: all 0.1s ease;
+    box-shadow:
+        0 4px 0 0 var(--accent-orange),
+        0 8px 0 0 var(--accent-yellow),
+        0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.roadmap-card h2 {
+    color: hsl(0, 0%, 10%);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.roadmap-card p {
+    color: hsl(0, 0%, 20%);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.roadmap-card:hover {
+    box-shadow:
+        -4px -4px 0 0 var(--accent-orange),
+        5px 5px 0 0 var(--accent-yellow),
+        0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
 span.c {
