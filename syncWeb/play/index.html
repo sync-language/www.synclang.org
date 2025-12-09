@@ -14,6 +14,7 @@
     <link rel="stylesheet" data-name="vs/editor/editor.main" href="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.45.0/min/vs/editor/editor.main.min.css">
     <script>var require = { paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.45.0/min/vs' } };</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.45.0/min/vs/loader.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lz-string@1.5.0/libs/lz-string.min.js"></script>
 </head>
 
 <body>
@@ -38,21 +39,34 @@
     </div>
 
     <script type="module">
-        // TODO get source code from share url
+        // Get source code from URL if present
         const urlParams = new URLSearchParams(window.location.search);
+        let initialCode = [
+            'fn main() {',
+            '\tprintln("Hello World!");',
+            '}'
+        ].join('\n');
+
         if(urlParams.has("code")) {
-            const code = urlParams.get("code");
-        }
-        else {  
+            const compressed = urlParams.get("code");
+            try {
+                // Wait for LZString to load if needed
+                if (typeof LZString !== 'undefined') {
+                    const decompressed = LZString.decompressFromEncodedURIComponent(compressed);
+                    if (decompressed) {
+                        initialCode = decompressed;
+                    }
+                } else {
+                    console.error('LZString not loaded, using default code');
+                }
+            } catch (e) {
+                console.error('Failed to decompress code:', e);
+            }
         }
 
         require(['vs/editor/editor.main'], function () {
             var editor = monaco.editor.create(document.getElementById('editor-container'), {
-                value: [
-                    'fn main() {',
-                    '\tprintln("Hello World!");',
-                    '}'
-                ].join('\n'),
+                value: initialCode,
                 theme: 'vs-dark'
             });
 

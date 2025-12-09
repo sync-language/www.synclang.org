@@ -34,6 +34,19 @@ body {
     font-family: var(--font-mono);
 }
 
+.hero-title-container {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.hero-logo {
+    height: 120px;
+    width: auto;
+}
+
 .hero p {
     color: var(--text);
     font-family: var(--font-mono);
@@ -47,9 +60,10 @@ p {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 1000; /* Ensures the navbar stays on top of other elements */
+    z-index: 1000;
     display: flex;
     flex-direction: row;
+    flex-wrap: nowrap;
     height: var(--navbar-height);
     text-align: center;
     align-items: center;
@@ -87,6 +101,12 @@ p {
     justify-content: center;
     align-items: center;
     flex-direction: row;
+    opacity: 0;
+    transition: opacity 0.1s ease;
+}
+
+.sync-logo-nav.show {
+    opacity: 1;
 }
 
 .sync-logo-within-nav {
@@ -113,6 +133,10 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    box-shadow:
+        0 4px 0 0 var(--accent-orange),
+        0 8px 0 0 var(--accent-purple);
 }
 
 .hero-inner {
@@ -153,55 +177,27 @@ p {
     text-align: center;
 }
 
-.getting-started {
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
-    font-weight: 200;
-    background: white;
-    color: hsl(0, 0%, 10%);
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.1s ease;
-    position: relative;
-    margin-bottom: 10px;
-    box-shadow:
-        0 4px 0 0 var(--accent-orange),
-        0 8px 0 0 var(--accent-yellow),
-        0 8px 20px rgba(0, 0, 0, 0.4);
+.hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.getting-started::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: white;
-    border-radius: 8px;
-    z-index: -1;
+@media (orientation: portrait) {
+    .hero-button {
+        margin-bottom: 40px;
+    }
+
+    .hero-logo {
+        height: 80px;
+    }
+
+    .hero h2 {
+        font-size: 3.5rem;
+    }
 }
 
-.getting-started::after {
-    content: none;
-}
-
-.getting-started:hover {
-    background: #f5f5f5;
-    box-shadow:
-        -4px -4px 0 0 var(--accent-orange),
-        5px 5px 0 0 var(--accent-yellow),
-        0 8px 20px rgba(0, 0, 0, 0.4);
-}
-
-.getting-started:active {
-    background: #f5f5f5;
-    box-shadow:
-        -4px -4px 0 0 var(--accent-orange),
-        4px 4px 0 0 var(--accent-yellow),
-        0 8px 10px rgba(0, 0, 0, 0.3);
-}
 
 section {
     margin: 0;
@@ -228,6 +224,7 @@ section {
         display: flex;
         flex-direction: column;
         align-items: center;
+        padding: 40px 0;
     }
 }
 
@@ -238,12 +235,13 @@ section {
         display: flex;
         flex-direction: row;
         align-items: stretch;
+        padding: 60px 0;
     }
 }
 
 .look-at-header {
     padding-top: 16px;
-    color: var(--accent-yellow);
+    color: var(--accent-purple);
 }
 
 .look-at-text {
@@ -267,6 +265,17 @@ section {
     margin: 16px;
 }
 
+.code-block-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.code-block-wrapper .run-code-btn {
+    margin-bottom: 1rem;
+}
+
 .code-block {
     flex: 1;
     background-color: #3b393b;
@@ -274,13 +283,45 @@ section {
     padding: 16px;
     font-size: 1rem;
     font-family: var(--font-mono);
-    border-radius: 8px;
+    border-radius: 0 0 8px 8px;
     position: relative;
-    box-shadow:
-        -4px -4px 0 0 var(--accent-orange),
-        4px 4px 0 0 var(--accent-yellow);
     overflow-x: auto;
     min-width: 0;
+    white-space: pre-wrap;
+}
+
+.code-window-header {
+    background-color: #2a282a;
+    padding: 10px 16px;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.window-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.window-control {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #555;
+}
+
+.window-icon {
+    width: 16px;
+    height: 16px;
+    margin-left: 4px;
+}
+
+.window-title {
+    color: #999;
+    font-size: 0.85rem;
+    font-family: var(--font-mono);
+    margin-left: 4px;
 }
 
 .get-involved {
@@ -329,7 +370,7 @@ section {
 }
 
 .roadmap-title {
-    color: var(--accent-yellow);
+    color: var(--accent-orange);
     font-size: 3rem;
     text-align: center;
 }
@@ -354,7 +395,7 @@ section {
     transition: all 0.1s ease;
     box-shadow:
         0 4px 0 0 var(--accent-orange),
-        0 8px 0 0 var(--accent-yellow),
+        0 8px 0 0 var(--accent-purple),
         0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
@@ -373,7 +414,7 @@ section {
 .roadmap-card:hover {
     box-shadow:
         -4px -4px 0 0 var(--accent-orange),
-        5px 5px 0 0 var(--accent-yellow),
+        5px 5px 0 0 var(--accent-purple),
         0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
