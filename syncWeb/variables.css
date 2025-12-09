@@ -17,9 +17,9 @@
     inset 0 4px 6px #00000030
     inset 0 6px 10px #00000030;
     --navbar-height: 60px;
-    --font-mono: 'Consolas', 'Courier New', monospace;
-    --accent-orange: #ff8c00;
-    --accent-yellow: #dbaf34;
+    --font-mono: 'Consolas', 'Monaco', 'Source Code Pro', monospace;
+    --accent-orange: #ff6905;
+    --accent-yellow: #f3be2e;
 }
 
 body {
