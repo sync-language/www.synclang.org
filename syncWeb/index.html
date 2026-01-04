@@ -60,39 +60,58 @@
         </div>
 
     </div>
+    <div class="navbar-divider"></div>
     <section class="hero">
         <div class="hero-inner">
-            <div class="hero-title-container">
+            <div class="hero-brand">
                 <img src="assets/sync-logo.png" alt="Sync Logo" class="hero-logo">
-                <h2>Sync</h2>
+                <p class="sync-desc">The embeddable scripting language that doesn't fear real threads</p>
             </div>
-            <p class="sync-desc">Safely embeddable, natively multithreaded</p>
             <div class="hero-buttons">
                 <button class="hero-button"
                     onclick="window.open('https://github.com/sync-language/sync', '_blank');">Getting Started</button>
                 <button class="hero-button" onclick="window.open('play/', '_blank');">Try It Online</button>
             </div>
+            <div class="hero-compat">
+                <span class="hero-compat-label">Sync works with</span>
+                <span class="hero-compat-lang">C</span>
+                <span class="hero-compat-sep">•</span>
+                <span class="hero-compat-lang">C++</span>
+                <span class="hero-compat-sep">•</span>
+                <span class="hero-compat-lang">Rust</span>
+                <span class="hero-compat-sep">•</span>
+                <span class="hero-compat-lang">Zig</span>
+            </div>
         </div>
     </section>
     <section class="look-at">
         <div class="look-at-container">
-            <div class="why">
-                <h1 class="look-at-header">Embeddable</h1>
-                <p class="look-at-text">Sync is lightweight, being embeddable with a simple API and native support for
-                    C, C++, Rust, and Zig. It works on all platforms with a C++17 or higher compiler.</p>
-                <h1 class="look-at-header">Multithreading</h1>
-                <p class="look-at-text">Sync supports running all built code in parallel, without data races and
-                    deadlocks. It can utilize all available CPU process power.</p>
+            <!-- <p class="look-at-tagline">Safely embeddable, natively multithreaded</p> -->
+            <div class="design-philosophy">
                 <h1 class="look-at-header">Safety</h1>
-                <p class="look-at-text"><strong class="thread-safety-is-memory-safety">Thread safety is memory safety.
-                    </strong>Sync's ownership model, static typing, and robust synchronization logic guarantees modern,
-                    compile-time safety and secure communication with its host program.</p>
+                <ul class="look-at-list">
+                    <li><strong class="thread-safety-is-memory-safety">Thread safety is memory safety</strong></li>
+                    <li>Compile and run any code on demand</li>
+                    <li>Compiler will ensure safe code execution through the borrow checker</li>
+                </ul>
+                <h1 class="look-at-header">Embeddable</h1>
+                <ul class="look-at-list">
+                    <li>Embed Sync into your project with APIs for many languages</li>
+                    <li>Usable on any platform</li>
+                    <li>Full control over memory usage</li>
+                </ul>
+                <h1 class="look-at-header">Multithreading</h1>
+                <ul class="look-at-list">
+                    <li>Uses real OS threads for true parallelism</li>
+                    <li>Share memory across threads for complex interconnected applications</li>
+                    <li>Detect and prevent deadlocks</li>
+                </ul>
                 <h1 class="look-at-header">Simple</h1>
-                <p class="look-at-text">Sync uses the C struct memory layout and no garbage collector for seamless data
-                    exchange without translation layers. It is deterministic, using move semantics and destructors.</p>
-                <h1 class="look-at-header">Flexibility</h1>
-                <p class="look-at-text">Sync code compiles on demand during runtime, offering maximum program
-                    flexibility.</p>
+                <ul class="look-at-list">
+                    <li>100% deterministic, with no garbage collector</li>
+                    <li>Perfect for real time applications</li>
+                    <li>Zero translation layers required through using the C struct memory layout</li>
+                </ul>
             </div>
             <div class="code-examples">
                 <div class="code-block-wrapper">
@@ -104,15 +123,12 @@
                             <div class="window-control"></div>
                         </div>
                         <img src="assets/sync-editor-icon.png" alt="Sync icon" class="window-icon">
-                        <span class="window-title">main.sync</span>
+                        <span class="window-title">shared_thread_counter.sync</span>
                     </div>
-                    <div class="code-block"><code><span class="c">// Mutable global variable</span>
-<span class="c">// Compiler enforces thread safety with the `Owned` modifier</span>
-<span class="k">mut</span> <span class="i">counter</span><span class="s">:</span> <span class="k">Owned </span><span class="t">i32</span><span class="s"> =</span> <span class="v">0</span><span class="s">;</span>
+                    <div class="code-block"><code><span class="k">mut</span> <span class="i">counter</span><span class="s">:</span> <span class="k">Owned </span><span class="t">i32</span><span class="s"> =</span> <span class="v">0</span><span class="s">;</span>
 
 <span class="k">fn</span> <span class="f">addOne</span><span class="s">() {</span>
-  <span class="k">for</span> <span class="i">i</span> <span class="k">in</span> <span class="v">0</span><span class="s">..</span><span class="v">10000</span> <span class="s">{</span> <span class="c">// Iterates 0, 1, 2, .. 9999</span>
-    <span class="c">// Acquire a read-write (exclusive) lock</span>
+  <span class="k">for</span> <span class="i">i</span> <span class="k">in</span> <span class="v">0</span><span class="s">..</span><span class="v">10000</span> <span class="s">{</span> 
     <span class="k">sync mut</span> <span class="i">counter</span> <span class="s">{</span>
       <span class="i">counter</span> <span class="s">+=</span> <span class="v">1</span><span class="s">;</span>
     <span class="s">}</span>
@@ -120,8 +136,7 @@
 <span class="s">}</span>
 
 <span class="k">fn</span> <span class="f">addTwo</span><span class="s">(</span><span class="i">n</span><span class="s">:</span> <span class="t">usize</span><span class="s">) {</span>
-  <span class="k">for</span> <span class="i">i</span> <span class="k">in</span> <span class="v">0</span><span class="s">..</span><span class="i">n</span> <span class="s">{</span> <span class="c">// Iterates [0, n)</span>
-    <span class="c">// Acquire a read-write (exclusive) lock</span>
+  <span class="k">for</span> <span class="i">i</span> <span class="k">in</span> <span class="v">0</span><span class="s">..</span><span class="i">n</span> <span class="s">{</span>
     <span class="k">sync mut</span> <span class="i">counter</span> <span class="s">{</span>
       <span class="i">counter</span> <span class="s">+=</span> <span class="v">2</span><span class="s">;</span>
     <span class="s">}</span>
@@ -129,16 +144,36 @@
 <span class="s">}</span>
 
 <span class="k">fn</span> <span class="f">main</span><span class="s">() {</span>
-  <span class="s">{</span>
-    <span class="k">const</span> <span class="i">t1</span> <span class="s">=</span> <span class="t">Thread</span><span class="s">.</span><span class="f">spawn</span><span class="s">(</span><span class="f">addOne</span><span class="s">);</span>
-    <span class="k">const</span> <span class="i">t2</span> <span class="s">=</span> <span class="t">Thread</span><span class="s">.</span><span class="f">spawn</span><span class="s">(</span><span class="f">addTwo</span><span class="s">,</span> <span class="v">20000</span><span class="s">);</span>
-  <span class="s">}</span>
+  <span class="k">const</span> <span class="i">t2</span> <span class="s">=</span> <span class="k">parallel</span> <span class="f">addOne</span><span class="s">();</span>
+  <span class="k">const</span> <span class="i">t2</span> <span class="s">=</span> <span class="k">parallel</span> <span class="f">addTwo</span><span class="s">(</span><span class="v">20000</span><span class="s">);</span>
+  <span class="f">addOne</span><span class="s">();</span>
 
-  <span class="c">// Acquire a read-only (shared) lock</span>
+  <span class="k">await</span> <span class="i">t1</span><span class="s">;</span>
+  <span class="k">await</span> <span class="i">t2</span><span class="s">;</span>
+
   <span class="k">sync</span> <span class="i">counter</span> <span class="s">{</span>
-    <span class="f">print</span><span class="s">(</span><span class="i">counter</span><span class="s">);</span> <span class="c">// 50000</span>
+    <span class="f">print</span><span class="s">(</span><span class="i">counter</span><span class="s">);</span> <span class="c">// 60000</span>
   <span class="s">}</span>
 <span class="s">}</span></code></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="why-sync">
+        <div class="why-sync-container">
+            <h1 class="why-sync-title">Why Sync?</h1>
+            <div class="why-sync-cards">
+                <div class="why-sync-card dark-card-pop">
+                    <h2>Games & Game Engines</h2>
+                    <p>Enable modders and designers to write gameplay scripts that leverage all CPU cores. Complex AI, physics callbacks, and game logic can run in parallel without sacrificing safety or determinism.</p>
+                </div>
+                <div class="why-sync-card dark-card-pop">
+                    <h2>Extend Real-time Applications</h2>
+                    <p>Add scriptable extensibility to audio workstations, video editors, and other latency-sensitive software. No garbage collector pauses, predictable performance, and true parallel execution.</p>
+                </div>
+                <div class="why-sync-card dark-card-pop">
+                    <h2>Simulation Software</h2>
+                    <p>Build simulations where thousands of interconnected entities share state across worker threads. Sync's ownership model ensures data consistency while maximizing throughput.</p>
                 </div>
             </div>
         </div>

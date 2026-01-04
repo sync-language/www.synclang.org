@@ -111,3 +111,23 @@ body {
         2px 2px 0 0 var(--accent-purple),
         0 2px 5px rgba(0, 0, 0, 0.2);
 }
+
+/* Dark card with inverted color pop effect (purple top-left, orange bottom-right) */
+.dark-card-pop {
+    background: #1b1a1b;
+    border: 1px solid #3a383a;
+    border-radius: 8px;
+    transition: all 0.1s ease;
+    position: relative;
+    box-shadow:
+        0 4px 0 0 var(--inactive-grey-dark),
+        0 8px 0 0 hsl(0, 0%, 15%),
+        0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.dark-card-pop:hover {
+    box-shadow:
+        -4px -4px 0 0 var(--accent-purple),
+        5px 5px 0 0 var(--accent-orange),
+        0 8px 20px rgba(0, 0, 0, 0.4);
+}

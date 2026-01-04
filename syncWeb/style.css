@@ -27,29 +27,28 @@ body {
     overscroll-behavior-y: none;
 }
 
-.hero h2 {
-    color: var(--text);
-    font-size: 4.5rem;
-    font-weight: normal;
-    font-family: var(--font-mono);
+.navbar-divider {
+    width: 100%;
+    height: 1px;
+    background-color: var(--inactive-grey-dark);
 }
 
-.hero-title-container {
+.hero-brand {
     display: flex;
     align-items: center;
     gap: 2rem;
-    flex-wrap: wrap;
-    justify-content: center;
 }
 
 .hero-logo {
-    height: 120px;
+    height: 100px;
     width: auto;
 }
 
-.hero p {
+.sync-desc {
     color: var(--text);
-    font-family: var(--font-mono);
+    font-size: 2.2rem;
+    margin: 0;
+    max-width: 500px;
 }
 
 p {
@@ -67,7 +66,7 @@ p {
     height: var(--navbar-height);
     text-align: center;
     align-items: center;
-    background-color: var(--hero-bg);
+    background-color: var(--main-bg);
 }
 
 .non-logo-nav {
@@ -129,12 +128,13 @@ p {
     flex: 0 1 auto;
     width: 100%;
     min-height: 300px;
-    background-color: var(--hero-bg);
+    background-color: var(--main-bg);
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    padding-bottom: 30px;    
+    padding-bottom: 30px;
+    padding-top: 30px;
 }
 
 .hero-inner {
@@ -167,14 +167,6 @@ p {
     }
 }
 
-.sync-desc {
-    margin: 0;
-    font-size: 2.0rem;
-    max-width: 80%;
-    color: var(--text);
-    text-align: center;
-}
-
 .hero-buttons {
     display: flex;
     gap: 1.5rem;
@@ -182,17 +174,33 @@ p {
     justify-content: center;
 }
 
+.hero-compat {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 0.5rem;
+}
+
+.hero-compat-label {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-right: 0.3rem;
+}
+
+.hero-compat-lang {
+    color: var(--text);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.hero-compat-sep {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
 @media (orientation: portrait) {
-    .hero-button {
-        margin-bottom: 40px;
-    }
-
     .hero-logo {
-        height: 80px;
-    }
-
-    .hero h2 {
-        font-size: 3.5rem;
+        height: 100px;
     }
 }
 
@@ -237,6 +245,14 @@ section {
     }
 }
 
+.look-at-tagline {
+    color: var(--text-muted);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    width: 100%;
+}
+
 .look-at-header {
     padding-top: 16px;
     color: var(--accent-purple);
@@ -253,8 +269,21 @@ section {
     color: var(--accent-orange)
 }
 
-.why {
+.design-philosophy {
     flex: 1;
+}
+
+.look-at-list {
+    padding-top: 12px;
+    padding-bottom: 16px;
+    padding-left: 24px;
+    color: var(--text);
+    font-size: 1.25rem;
+    line-height: 1.7;
+}
+
+.look-at-list li {
+    margin-bottom: 4px;
 }
 
 .code-examples {
@@ -306,7 +335,18 @@ section {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background-color: #555;
+}
+
+.window-control:nth-child(1) {
+    background-color: #ff5f56;
+}
+
+.window-control:nth-child(2) {
+    background-color: #ffbd2e;
+}
+
+.window-control:nth-child(3) {
+    background-color: #27c93f;
 }
 
 .window-icon {
@@ -320,6 +360,57 @@ section {
     font-size: 0.85rem;
     font-family: var(--font-mono);
     margin-left: 4px;
+}
+
+.why-sync {
+    background-color: var(--hero-bg);
+    padding: 60px 0;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.why-sync-container {
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+}
+
+.why-sync-title {
+    color: var(--accent-orange);
+    font-size: 3rem;
+    text-align: center;
+}
+
+.why-sync-cards {
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.why-sync-card {
+    padding: 2rem;
+    flex: 1;
+    min-width: 280px;
+    max-width: 380px;
+}
+
+.why-sync-card h2 {
+    color: var(--accent-purple);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.why-sync-card p {
+    color: var(--text);
+    font-size: 1.1rem;
+    line-height: 1.6;
 }
 
 .get-involved {
@@ -421,11 +512,13 @@ span.c {
 }
 
 span.k {
-    color: rgb(35, 157, 238);
+    /* color: rgb(35, 157, 238); */
+    color: rgb(42, 192, 238);
 }
 
 span.f {
-    color: rgb(236, 216, 33);
+    /* color: rgb(236, 216, 33); */
+    color: rgb(250, 200, 35);
 }
 
 span.t {
@@ -434,4 +527,8 @@ span.t {
 
 span.v {
     color: rgb(146, 219, 87);
+}
+
+span.i {
+    color: rgb(234, 205, 243);
 }
